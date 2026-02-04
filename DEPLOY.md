@@ -231,6 +231,151 @@ git checkout backup-[日期時間]
 
 ## 🔥 常見部署陷阱與解決方案
 
+### ⚠️ Next.js App Router 特有問題（重點！）
+
+#### 問題 A：ESLint 錯誤 - `react/no-unescaped-entities`
+**症狀：** 部署失敗，錯誤訊息 "Failed to compile" + "react/no-unescaped-entities"  
+**原因：** JSX 中使用未轉義的引號（`'` 或 `"`）  
+**解決：**
+- 將所有單引號 `'` 替換為 `&apos;`
+- 將所有雙引號 `"` 替換為 `&quot;`
+- 移除未使用的變數（如 `error` 未使用）
+
+**範例：**
+```typescript
+// ❌ 錯誤
+<p>We can't help you.</p>
+
+// ✅ 正確
+<p>We can&apos;t help you.</p>
+```
+
+---
+
+#### 問題 B：`'use client'` 指令位置錯誤
+**症狀：** 部署失敗，錯誤訊息 "The 'use client' directive must be placed before other expressions"  
+**原因：** `'use client'` 必須是檔案的**第一行**，甚至在 `import` 之前  
+**解決：**
+```typescript
+// ❌ 錯誤
+import Link from 'next/link';
+'use client';
+
+// ✅ 正確
+'use client';
+
+import Link from 'next/link';
+```
+
+---
+
+#### 問題 C：TypeScript 類型錯誤 - 函數參數缺失
+**症狀：** 部署失敗，錯誤訊息 "Property 'necessary' is missing in type..."  
+**原因：** 呼叫 `saveConsent()` 時沒有傳入必要參數  
+**解決：**
+```typescript
+// ❌ 錯誤
+saveConsent({ analytics: true });
+
+// ✅ 正確
+saveConsent({ necessary: true, analytics: true });
+```
+
+---
+
+#### 問題 D：Server/Client Component 預渲染錯誤（最難！）
+**症狀：** 部署失敗，錯誤訊息 "Error occurred prerendering page. Event handlers cannot be passed to Client Component props"  
+**原因：** Next.js App Router 中，Server Component 不能直接傳遞事件處理器（`onClick`）給 Client Component  
+**解決方案：提取獨立的 Client Component**
+
+**錯誤示範：**
+```typescript
+// app/privacy/page.tsx (Server Component)
+export default function PrivacyPage() {
+  return (
+    <button onClick={() => console.log('click')}>
+      Settings
+    </button>
+  );
+}
+// ❌ Server Component 不能有 onClick
+```
+
+**正確做法：**
+```typescript
+// components/CookieSettingsButton.tsx (Client Component)
+'use client';
+
+export default function CookieSettingsButton({ children }) {
+  const handleClick = () => {
+    // 事件邏輯
+  };
+  
+  return <button onClick={handleClick}>{children}</button>;
+}
+
+// app/privacy/page.tsx (Server Component)
+import CookieSettingsButton from '@/components/CookieSettingsButton';
+
+export default function PrivacyPage() {
+  return (
+    <CookieSettingsButton>
+      Settings
+    </CookieSettingsButton>
+  );
+}
+// ✅ 事件處理器封裝在 Client Component 內
+```
+
+**關鍵原則：**
+- Server Component = 靜態內容、無互動
+- Client Component = 互動功能、狀態管理、事件處理
+- **不要**在 Server Component 中直接使用 `onClick`、`useState`、`useEffect`
+- **要**將互動邏輯提取到獨立的 Client Component
+
+---
+
+#### 問題 E：Cookie 相關組件架構建議
+**最佳實踐：**
+1. **核心邏輯層** (`lib/consent.ts`) - 純函數，無 UI
+2. **Context Provider** (`ConsentProvider.tsx`) - 全局狀態管理
+3. **UI 組件** (`CookieBanner.tsx`, `CookiePreferences.tsx`) - 獨立 Client Component
+4. **頁面使用** - Server Component 引入 Client Component
+
+```
+app/layout.tsx (Server)
+  └─> ConsentProvider (Client)
+       ├─> CookieBanner (Client)
+       ├─> CookiePreferences (Client)
+       └─> AnalyticsScripts (Client)
+
+app/privacy/page.tsx (Server)
+  └─> CookieSettingsButton (Client) ← 提取事件處理
+```
+
+---
+
+#### 📊 Next.js App Router 組件規則速查表
+
+| 特性 | Server Component | Client Component |
+|------|-----------------|------------------|
+| **預設** | ✅ `page.tsx` 預設 | ❌ 需明確標記 `'use client'` |
+| **互動事件** | ❌ 不能用 `onClick` 等 | ✅ 可以用所有事件 |
+| **React Hooks** | ❌ 不能用 `useState`、`useEffect` | ✅ 可以用所有 Hooks |
+| **瀏覽器 API** | ❌ 無 `window`、`localStorage` | ✅ 可以使用 |
+| **資料獲取** | ✅ 可直接 `async/await` | ❌ 需用 `useEffect` |
+| **SEO** | ✅ 完全可被爬取 | ⚠️ 需水合後才完整 |
+| **渲染時機** | 🏗️ 構建時預渲染 | 🌐 客戶端渲染 |
+| **檔案位置** | `app/**/*.tsx` | 任何標記 `'use client'` 的檔案 |
+
+**判斷原則：**
+- 需要互動 → Client Component
+- 純展示內容 → Server Component
+- 需要讀取 Cookie/localStorage → Client Component
+- 需要 SEO → Server Component（然後引入 Client Component 處理互動）
+
+---
+
 ### 問題 1：部署平台 Root Directory 設定錯誤
 **症狀：** 平台顯示舊版本，無法自動拉取新 commit  
 **原因：** Root Directory 設定不符合 Git repo 結構  
@@ -507,6 +652,126 @@ git branch backup-$(date +%Y%m%d-%H%M%S)
 
 ---
 
+## 📚 實戰案例：GDPR Cookie Consent 系統部署
+
+### **專案背景**
+- 專案名稱：5 Axis Head Repair
+- 新增功能：完整 GDPR 合規的 Cookie Consent 系統
+- 技術棧：Next.js 15.1.6 (App Router) + TypeScript + Tailwind CSS
+
+### **部署時間線**
+
+| 時間 | 階段 | 問題 | 解決方案 | Commit |
+|------|------|------|---------|--------|
+| 14:49 | 首次部署 | ❌ ESLint 錯誤 - 未轉義引號 | 全面轉義 `&apos;` 和 `&quot;` | - |
+| 15:12 | 第二次部署 | ❌ `'use client'` 位置錯誤 | 移動到檔案最頂部（第一行） | - |
+| 15:25 | 第三次部署 | ❌ TypeScript 類型錯誤 | `saveConsent` 補上 `necessary: true` | - |
+| 15:37 | 第四次部署 | ❌ Server Component 預渲染錯誤 | 提取 `CookieSettingsButton` 獨立組件 | `2d81702` |
+| 15:45 | ✅ 成功部署 | 無錯誤 | 所有問題已修復 | `d117563` |
+
+### **遇到的問題總結**
+
+#### **1. ESLint 嚴格檢查（3 個檔案受影響）**
+```bash
+Error: Failed to compile
+./app/spindle-repair-rebuild/page.tsx
+  react/no-unescaped-entities
+```
+**修復：** 使用 `search_replace` 工具批量替換所有未轉義引號
+
+---
+
+#### **2. Next.js 15 的 `'use client'` 規則更嚴格**
+```bash
+Error: The "use client" directive must be placed before other expressions.
+```
+**修復：** 確保 `'use client'` 是檔案第一行（連註解都不能在前面）
+
+---
+
+#### **3. TypeScript 嚴格模式捕捉到參數缺失**
+```bash
+Type error: Property 'necessary' is missing in type...
+```
+**修復：** 顯式傳入所有必要參數（不依賴預設值）
+
+---
+
+#### **4. Server/Client Component 邊界問題（最複雜）**
+```bash
+Error occurred prerendering page "/privacy".
+Event handlers cannot be passed to Client Component props.
+```
+
+**根本原因：**
+- Next.js 15 的 App Router 預設所有 `page.tsx` 都是 Server Component
+- Server Component 在構建時預渲染成靜態 HTML
+- 無法序列化事件處理器（函數）傳遞給 Client Component
+
+**修復流程：**
+1. 識別問題：`/privacy` 頁面中的 `<button onClick={...}>` 
+2. 提取邏輯：創建 `CookieSettingsButton.tsx` Client Component
+3. 封裝事件：將 `onClick` 邏輯完全封裝在 Client Component 內
+4. 頁面引入：Server Component 只引入並使用，不傳遞函數
+
+**最終架構：**
+```
+Server Component (app/privacy/page.tsx)
+  └─> Client Component (CookieSettingsButton.tsx)
+       └─> Event Handler (onClick) ✓
+```
+
+---
+
+### **關鍵學習點**
+
+#### ✅ **成功經驗**
+1. **系統化排查：** 每次只修一個問題，驗證後再推送
+2. **工具優先：** 使用 `grep` 全面搜索，避免遺漏
+3. **架構分層：** Client/Server Component 職責分明
+4. **文檔記錄：** 每個問題都記錄到 DEPLOY.md
+
+#### ⚠️ **避坑指南**
+1. **不要**在 Server Component 中使用任何瀏覽器 API（`window`、`localStorage`）
+2. **不要**在 Server Component 中使用 React Hooks（`useState`、`useEffect`）
+3. **不要**在 Server Component 中傳遞事件處理器給子組件
+4. **不要**假設 ESLint 在本地通過就能部署成功（Vercel 更嚴格）
+
+#### 🎯 **快速檢查清單**
+部署前必查：
+- [ ] 所有引號已轉義（`grep` 搜索 `'` 和 `"`）
+- [ ] `'use client'` 在檔案第一行
+- [ ] TypeScript 編譯通過（`npm run build`）
+- [ ] Server Component 無事件處理器
+- [ ] Client Component 正確標記 `'use client'`
+
+---
+
+### **部署成功指標**
+```bash
+✅ Build completed successfully
+✅ Deployment ready
+✅ Domain: https://5axisheadrepair.com
+✅ All pages prerendered correctly
+✅ No ESLint errors
+✅ No TypeScript errors
+```
+
+### **後續維護建議**
+1. **新增 Client Component 時：** 立即加上 `'use client'`
+2. **新增 Server Component 時：** 確保無互動邏輯
+3. **修改 JSX 內容時：** 隨手轉義引號
+4. **推送前檢查：** `npm run build` 必須通過
+
+---
+
+**本案例記錄時間：2026-02-04**  
+**總部署次數：4 次**  
+**總耗時：約 1 小時**  
+**最終狀態：✅ 生產環境穩定運行**
+
+---
+
 **最後更新：2026-02-04**  
-**版本：v1.0**  
+**版本：v2.0 - 新增 Next.js App Router 部署指南**  
 **適用專案：Next.js, React, Vue, Nuxt 等 Node.js 專案**
