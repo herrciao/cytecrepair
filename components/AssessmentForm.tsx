@@ -49,7 +49,7 @@ export default function AssessmentForm({
         hasVideos: false,
         hasAlarms: false,
       });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -71,7 +71,7 @@ export default function AssessmentForm({
       {submitStatus === 'success' && (
         <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
           <p className="text-green-800 font-medium">
-            ✓ Assessment request submitted successfully! We'll review your information and contact you within 24 hours.
+            ✓ Assessment request submitted successfully! We&apos;ll review your information and contact you within 24 hours.
           </p>
         </div>
       )}
@@ -246,7 +246,7 @@ export default function AssessmentForm({
 
         <div className="bg-primary-50 border border-primary-200 rounded-md p-4">
           <p className="text-sm text-primary-800">
-            <strong>Note:</strong> After submission, we'll contact you with instructions for securely sharing photos, videos, or other documentation.
+            <strong>Note:</strong> After submission, we&apos;ll contact you with instructions for securely sharing photos, videos, or other documentation.
           </p>
         </div>
 

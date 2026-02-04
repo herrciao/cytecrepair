@@ -61,7 +61,7 @@ export default function SpindleRotaryUnionLeakagePage() {
             </h1>
             
             <p className="text-xl text-primary-100 mb-8">
-              Oil or coolant leaking from your M21 or G30 spindle area is more than a mess—it's a warning sign. 
+              Oil or coolant leaking from your M21 or G30 spindle area is more than a mess—it&apos;s a warning sign. 
               With over 10 years of experience repairing M21 and G30 systems worldwide, we understand how rotary union 
               leakage escalates to bearing failure and costly downtime.
             </p>
@@ -249,7 +249,7 @@ export default function SpindleRotaryUnionLeakagePage() {
             <div className="card border-red-200 p-8">
               <h2 className="heading-md mb-4 text-red-900">Why Delaying Repair Increases Risk</h2>
               <p className="text-lg text-red-800 mb-6">
-                What begins as a "small leak" can quickly escalate to catastrophic failure:
+                What begins as a &ldquo;small leak&rdquo; can quickly escalate to catastrophic failure:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

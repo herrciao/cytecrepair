@@ -447,7 +447,7 @@ export default function HydraulicAggregatePage() {
               <h2 className="heading-lg mb-4">Describe Your Pressure Issue</h2>
               <p className="text-xl text-secondary-600">
                 Include alarm codes, pressure behavior patterns, photos of pressure gauges, and any available pressure charts. 
-                We'll analyze your submission and provide diagnosis within 24-48 hours.
+                We&apos;ll analyze your submission and provide diagnosis within 24-48 hours.
               </p>
             </div>
             <AssessmentForm 

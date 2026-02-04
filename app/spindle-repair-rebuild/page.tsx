@@ -396,7 +396,7 @@ export default function SpindleRepairRebuildPage() {
               <h2 className="heading-lg mb-4">Request Spindle Assessment</h2>
               <p className="text-xl text-secondary-600">
                 Describe your symptoms, upload photos/videos if available, and include any alarm codes. 
-                We'll provide initial diagnosis within 24-48 hours.
+                We&apos;ll provide initial diagnosis within 24-48 hours.
               </p>
             </div>
             <AssessmentForm 
