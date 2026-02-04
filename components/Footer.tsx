@@ -19,7 +19,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">
-              Cytec M21 & G30 Repair Services
+              5 Axis Head Repair
             </h3>
             <p className="text-sm leading-relaxed">
               Independent aftermarket repair and rebuild services for Cytec M21 and G30 two-axis milling heads. 

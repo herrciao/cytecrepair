@@ -60,7 +60,7 @@ git push -u origin main
 2. Click "Import Git Repository"
 3. Select your GitHub repository
 4. Configure project:
-   - **Project Name:** cytec-repair-services (or your choice)
+   - **Project Name:** 5-axis-head-repair (or your choice)
    - **Framework Preset:** Next.js
    - **Root Directory:** Leave blank
    - **Build Command:** `npm run build`

@@ -1,8 +1,10 @@
-# Cytec Two-Axis Head Repair Services Website
+# 5 Axis Head Repair Website
 
 > **Production-ready, SEO-focused lead generation site for independent aftermarket repair services**
 
 Independent aftermarket repair and rebuild services for machines equipped with Cytec two-axis milling heads. This is a high-intent lead generation website designed to attract qualified inbound leads from global end users, distributors, and service partners.
+
+**Domain:** www.5axisheadrepair.com
 
 ---
 
@@ -182,7 +184,7 @@ cytecrepair/
 - Comprehensive symptom list (acoustic, thermal, electronic, operational)
 - Encoder system diagnostics
 - Gear-based encoder issues (connector wear, cable fatigue)
-- Leine & Linde industry reference (no OEM part numbers)
+- Lenord + Bauer industry reference (no OEM part numbers)
 - Targeted repair vs. full rebuild decision matrix
 - 7-step repair process
 - 5 FAQs with schema markup

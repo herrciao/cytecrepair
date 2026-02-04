@@ -214,7 +214,7 @@ export default function SpindleRepairRebuildPage() {
                 <h3 className="font-semibold text-lg mb-4">M21 & G30 Encoder Components in Stock</h3>
                 <p className="text-secondary-700 mb-4">
                   Gear-based encoder systems in M21 and G30 models commonly use components from industry suppliers such as 
-                  <strong> Leine & Linde</strong> and similar manufacturers. We maintain selective inventory of M21 and G30 compatible components:
+                  <strong> Lenord + Bauer</strong> and similar manufacturers. We maintain selective inventory of M21 and G30 compatible components:
                 </p>
                 <ul className="space-y-2 text-secondary-700">
                   <li className="flex items-start">

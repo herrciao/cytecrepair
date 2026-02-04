@@ -8,10 +8,10 @@ import CookiePreferences from '@/components/CookiePreferences';
 import AnalyticsScripts from '@/components/AnalyticsScripts';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cytec-repair-services.com'),
+  metadataBase: new URL('https://5axisheadrepair.com'),
   title: {
     default: 'Cytec M21 & G30 Repair Services | Independent Aftermarket Specialist',
-    template: '%s | Cytec Repair Services',
+    template: '%s | 5 Axis Head Repair',
   },
   description: 'Independent aftermarket repair and rebuild services for Cytec M21 and G30 two-axis milling heads. Over 10 years experience with on-site and return-to-base spindle repair worldwide.',
   keywords: [
@@ -19,12 +19,13 @@ export const metadata: Metadata = {
     'Cytec G30 repair',
     'M21 spindle repair',
     'G30 two-axis head',
+    '5 axis head repair',
     'Cytec rotary union leakage',
     'M21 G30 maintenance',
     'independent aftermarket',
     'non-OEM repair services',
   ],
-  authors: [{ name: 'Cytec Repair Services' }],
+  authors: [{ name: '5 Axis Head Repair' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',

@@ -13,10 +13,10 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex items-center justify-center w-10 h-10 bg-primary-600 rounded">
-              <span className="text-white font-bold text-xl">C</span>
+              <span className="text-white font-bold text-xl">5</span>
             </div>
             <span className="font-bold text-lg text-secondary-900">
-              Cytec Repair Services
+              5 Axis Head Repair
             </span>
           </Link>
 
