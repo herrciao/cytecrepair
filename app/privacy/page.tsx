@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import CookieSettingsButton from '@/components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -97,17 +98,9 @@ export default function PrivacyPage() {
                   <strong>Purpose:</strong> Improve website usability and content. 
                   <strong> Legal basis:</strong> Your explicit consent (can be revoked anytime).
                 </p>
-                <button
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      const event = new CustomEvent('openCookiePreferences');
-                      window.dispatchEvent(event);
-                    }
-                  }}
-                  className="btn-secondary mt-3 text-sm"
-                >
+                <CookieSettingsButton className="btn-secondary mt-3 text-sm">
                   Manage Cookie Preferences
-                </button>
+                </CookieSettingsButton>
               </div>
             </div>
           </section>
@@ -239,17 +232,9 @@ export default function PrivacyPage() {
                 <p className="text-sm text-secondary-700 mb-3">
                   Help us understand how visitors use our website. Only set with your explicit consent.
                 </p>
-                <button
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      const event = new CustomEvent('openCookiePreferences');
-                      window.dispatchEvent(event);
-                    }
-                  }}
-                  className="btn-secondary text-sm"
-                >
+                <CookieSettingsButton className="btn-secondary text-sm">
                   Manage Cookie Settings
-                </button>
+                </CookieSettingsButton>
               </div>
             </div>
           </section>
