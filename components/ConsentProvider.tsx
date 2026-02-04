@@ -27,7 +27,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const setConsent = (analytics: boolean) => {
-    saveConsent({ analytics });
+    saveConsent({ necessary: true, analytics });
     const updated = getConsent();
     setConsentState(updated);
     setHasDecision(true);
