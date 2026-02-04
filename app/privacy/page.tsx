@@ -4,7 +4,7 @@ import CookieSettingsButton from '@/components/CookieSettingsButton';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy policy and data protection information for Cytec M21 and G30 repair services.',
+  description: 'Privacy policy and data protection information for M21 and G30 two-axis head repair services.',
 };
 
 export default function PrivacyPage() {

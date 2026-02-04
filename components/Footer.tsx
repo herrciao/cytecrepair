@@ -104,7 +104,7 @@ export default function Footer() {
               Use of these names is for identification purposes only and does not imply endorsement or affiliation.
             </p>
             <p>
-              © {currentYear} Cytec Repair Services. All rights reserved.
+              © {currentYear} 5 Axis Head Repair Services. All rights reserved.
             </p>
           </div>
         </div>

@@ -42,7 +42,7 @@ git config user.email "your.email@example.com"
 git add .
 
 # Commit
-git commit -m "Initial commit: Cytec repair services website"
+git commit -m "Initial commit: 5 Axis Head Repair website"
 
 # Create main branch
 git branch -M main

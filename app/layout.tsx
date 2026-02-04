@@ -10,7 +10,7 @@ import AnalyticsScripts from '@/components/AnalyticsScripts';
 export const metadata: Metadata = {
   metadataBase: new URL('https://5axisheadrepair.com'),
   title: {
-    default: 'Cytec M21 & G30 Repair Services | Independent Aftermarket Specialist',
+    default: 'M21 & G30 Repair Services | Independent Aftermarket Specialist',
     template: '%s | 5 Axis Head Repair',
   },
   description: 'Independent aftermarket repair and rebuild services for Cytec M21 and G30 two-axis milling heads. Over 10 years experience with on-site and return-to-base spindle repair worldwide.',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Cytec Repair Services',
+    siteName: '5 Axis Head Repair',
   },
   robots: {
     index: true,
