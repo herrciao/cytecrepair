@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ConsentProvider } from '@/components/ConsentProvider';
+import CookieBanner from '@/components/CookieBanner';
+import CookiePreferences from '@/components/CookiePreferences';
+import AnalyticsScripts from '@/components/AnalyticsScripts';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cytec-repair-services.com'),
@@ -40,9 +44,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ConsentProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <CookieBanner />
+          <CookiePreferences />
+          <AnalyticsScripts />
+        </ConsentProvider>
       </body>
     </html>
   );

@@ -1,12 +1,21 @@
 import Link from 'next/link';
 
+'use client';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const openCookieSettings = () => {
+    if (typeof window !== 'undefined') {
+      const event = new CustomEvent('openCookiePreferences');
+      window.dispatchEvent(event);
+    }
+  };
 
   return (
     <footer className="bg-secondary-900 text-secondary-300">
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">
@@ -53,6 +62,28 @@ export default function Footer() {
             <Link href="/#contact" className="btn-primary text-sm">
               Request Assessment
             </Link>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-4">
+              Legal
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/privacy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <button
+                  onClick={openCookieSettings}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Cookie Settings
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
 
