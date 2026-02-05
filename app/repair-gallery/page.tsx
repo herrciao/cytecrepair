@@ -158,48 +158,6 @@ export default function RepairGalleryPage() {
         </div>
       </section>
 
-      {/* 如何添加圖片說明 */}
-      <section className="py-12 bg-blue-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              📸 How to Add Images to This Gallery
-            </h3>
-            <div className="space-y-4 text-gray-700">
-              <p>
-                <strong>Step 1:</strong> Place your images in the following folders:
-              </p>
-              <ul className="list-disc list-inside space-y-2 ml-4">
-                <li>
-                  <code className="bg-gray-100 px-2 py-1 rounded text-sm">
-                    public/case-studies/rotary-union/
-                  </code>
-                </li>
-                <li>
-                  <code className="bg-gray-100 px-2 py-1 rounded text-sm">
-                    public/case-studies/spindle-repair/
-                  </code>
-                </li>
-                <li>
-                  <code className="bg-gray-100 px-2 py-1 rounded text-sm">
-                    public/case-studies/hydraulic-aggregate/
-                  </code>
-                </li>
-              </ul>
-              <p>
-                <strong>Step 2:</strong> Update the <code className="bg-gray-100 px-2 py-1 rounded text-sm">images</code> arrays in this file with your image paths.
-              </p>
-              <p className="text-sm text-gray-600 italic">
-                Example: <code className="bg-gray-100 px-2 py-1 rounded text-sm">&apos;/case-studies/rotary-union/repair-01.jpg&apos;</code>
-              </p>
-              <p className="text-sm text-orange-600">
-                ⚠️ <strong>Important:</strong> Ensure all images are anonymized (no customer names, serial numbers, or identifying information visible).
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action */}
       <section className="py-16 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
