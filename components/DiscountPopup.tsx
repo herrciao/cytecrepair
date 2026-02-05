@@ -20,12 +20,12 @@ export default function DiscountPopup() {
     const popupShown = sessionStorage.getItem('discountPopupShown');
     
     if (!popupShown) {
-      // Show popup after 5 seconds
+      // Show popup after 11 seconds
       const timer = setTimeout(() => {
         setIsOpen(true);
         setHasShown(true);
         sessionStorage.setItem('discountPopupShown', 'true');
-      }, 5000);
+      }, 11000);
 
       return () => clearTimeout(timer);
     }
