@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ImageCarousel from '@/components/ImageCarousel';
+import AssessmentForm from '@/components/AssessmentForm';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -167,12 +168,50 @@ export default function RepairGalleryPage() {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Submit your issue for online assessment. Photos and videos help us provide accurate diagnosis.
           </p>
-          <Link 
-            href="/#contact"
+          <a 
+            href="#contact"
             className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
           >
             Submit Your Issue
-          </Link>
+          </a>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Request Your Free Assessment
+              </h2>
+              <p className="text-xl text-gray-600">
+                Tell us about your repair needs. Include photos, videos, and alarm descriptions 
+                to help us provide faster, more accurate diagnosis.
+              </p>
+              <div className="mt-6 flex items-center justify-center space-x-8 text-sm text-gray-500">
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  24-48h Response
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  No Obligation
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Confidential
+                </div>
+              </div>
+            </div>
+            <AssessmentForm />
+          </div>
         </div>
       </section>
     </main>
