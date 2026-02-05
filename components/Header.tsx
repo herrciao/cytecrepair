@@ -29,6 +29,12 @@ export default function Header() {
               Services
             </Link>
             <Link
+              href="/repair-gallery"
+              className="text-secondary-600 hover:text-primary-600 font-medium transition-colors"
+            >
+              Repair Gallery
+            </Link>
+            <Link
               href="/#how-we-work"
               className="text-secondary-600 hover:text-primary-600 font-medium transition-colors"
             >
@@ -77,6 +83,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Services
+              </Link>
+              <Link
+                href="/repair-gallery"
+                className="text-secondary-600 hover:text-primary-600 font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Repair Gallery
               </Link>
               <Link
                 href="/#how-we-work"

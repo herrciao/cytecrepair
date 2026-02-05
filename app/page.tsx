@@ -1,6 +1,7 @@
 import ServiceCard from '@/components/ServiceCard';
 import AssessmentForm from '@/components/AssessmentForm';
 import FAQ from '@/components/FAQ';
+import ImageCarousel from '@/components/ImageCarousel';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -266,29 +267,114 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Evidence Section */}
-      <section className="section-padding">
+      {/* Evidence Section - Repair Gallery Showcase */}
+      <section className="section-padding bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-lg mb-4">Our Work</h2>
             <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Anonymized case documentation (customer names and serial numbers removed for confidentiality)
+              Real repair examples from our M21 & G30 service experience
+            </p>
+            <p className="text-sm text-secondary-500 mt-2 italic">
+              (Customer names and serial numbers anonymized for confidentiality)
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="card">
-                <div className="aspect-video bg-secondary-200 flex items-center justify-center">
-                  <span className="text-secondary-500 text-sm">Case Photo Placeholder {i}</span>
-                </div>
-                <div className="p-4">
-                  <p className="text-sm text-secondary-600">
-                    Documentation available upon request. All identifying information removed.
-                  </p>
+          {/* Featured Carousel - Auto-rotates every 3 seconds */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <ImageCarousel 
+              images={[
+                // 圖片將從這些資料夾載入：
+                // '/case-studies/rotary-union/image1.jpg',
+                // '/case-studies/spindle-repair/image2.jpg',
+                // '/case-studies/hydraulic-aggregate/image3.jpg',
+              ]} 
+              interval={3000}
+              category="M21 & G30 Repair Cases"
+            />
+          </div>
+
+          {/* Category Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <Link href="/repair-gallery#rotary-union" className="card hover:shadow-xl transition-shadow group">
+              <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
+                <svg className="w-16 h-16 text-blue-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+                  Rotary Union Leakage
+                </h3>
+                <p className="text-sm text-secondary-600 mb-3">
+                  Oil & coolant leak repairs, seal replacements
+                </p>
+                <div className="text-primary-600 text-sm font-medium flex items-center">
+                  View Cases
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
               </div>
-            ))}
+            </Link>
+
+            <Link href="/repair-gallery#spindle-repair" className="card hover:shadow-xl transition-shadow group">
+              <div className="aspect-video bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
+                <svg className="w-16 h-16 text-green-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+                  Spindle Repair & Rebuild
+                </h3>
+                <p className="text-sm text-secondary-600 mb-3">
+                  Complete overhauls, bearing & encoder repairs
+                </p>
+                <div className="text-primary-600 text-sm font-medium flex items-center">
+                  View Cases
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/repair-gallery#hydraulic-aggregate" className="card hover:shadow-xl transition-shadow group">
+              <div className="aspect-video bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center relative overflow-hidden">
+                <svg className="w-16 h-16 text-orange-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
+                  Hydraulic Aggregate
+                </h3>
+                <p className="text-sm text-secondary-600 mb-3">
+                  Pressure issues, component replacements
+                </p>
+                <div className="text-primary-600 text-sm font-medium flex items-center">
+                  View Cases
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* View All Button */}
+          <div className="text-center mt-12">
+            <Link 
+              href="/repair-gallery"
+              className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
+            >
+              View All Repair Cases
+              <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
