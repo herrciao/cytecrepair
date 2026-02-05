@@ -31,25 +31,35 @@ export default function AssessmentForm({
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    // In production, replace with actual API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Form submitted:', formData);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        machineModel: '',
-        issueCategory: issueType,
-        issueDescription: '',
-        hasPhotos: false,
-        hasVideos: false,
-        hasAlarms: false,
+      // Submit to Formspree
+      const response = await fetch('https://formspree.io/f/mvzbpkbz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    } catch {
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          machineModel: '',
+          issueCategory: issueType,
+          issueDescription: '',
+          hasPhotos: false,
+          hasVideos: false,
+          hasAlarms: false,
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
