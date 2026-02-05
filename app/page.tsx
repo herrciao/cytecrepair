@@ -284,10 +284,15 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto mb-12">
             <ImageCarousel 
               images={[
-                // 圖片將從這些資料夾載入：
-                // '/case-studies/rotary-union/image1.jpg',
-                // '/case-studies/spindle-repair/image2.jpg',
-                // '/case-studies/hydraulic-aggregate/image3.jpg',
+                '/case-studies/rotary-union/IMG_0599.JPEG',
+                '/case-studies/rotary-union/IMG_0766.JPEG',
+                '/case-studies/rotary-union/IMG_0774.JPEG',
+                '/case-studies/spindle-repair/IMG_0002.JPEG',
+                '/case-studies/spindle-repair/IMG_0100.JPEG',
+                '/case-studies/spindle-repair/IMG_0610.JPEG',
+                '/case-studies/hydraulic-aggregate/IMG_0068.JPEG',
+                '/case-studies/hydraulic-aggregate/IMG_0145.JPEG',
+                '/case-studies/hydraulic-aggregate/IMG_0721.JPEG',
               ]} 
               interval={3000}
               category="M21 & G30 Repair Cases"
