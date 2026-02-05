@@ -43,18 +43,10 @@ export default function AssessmentForm({
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          machineModel: '',
-          issueCategory: issueType,
-          issueDescription: '',
-          hasPhotos: false,
-          hasVideos: false,
-          hasAlarms: false,
-        });
+        // Redirect to thank you page for conversion tracking
+        setTimeout(() => {
+          window.location.href = '/contact-success';
+        }, 500);
       } else {
         setSubmitStatus('error');
       }

@@ -13,7 +13,6 @@ export default function DiscountPopup() {
   });
   const [couponCode, setCouponCode] = useState('');
   const [showCoupon, setShowCoupon] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
     // Check if popup has been shown in this session
@@ -23,7 +22,6 @@ export default function DiscountPopup() {
       // Show popup after 11 seconds
       const timer = setTimeout(() => {
         setIsOpen(true);
-        setHasShown(true);
         sessionStorage.setItem('discountPopupShown', 'true');
       }, 11000);
 
@@ -57,8 +55,6 @@ export default function DiscountPopup() {
       console.error('Failed to send email:', error);
     }
 
-    setShowCoupon(true);
-
     // Store coupon in localStorage
     localStorage.setItem('discountCoupon', JSON.stringify({
       code,
@@ -66,6 +62,14 @@ export default function DiscountPopup() {
       formData,
       createdAt: new Date().toISOString(),
     }));
+
+    // Show coupon code first, then redirect
+    setShowCoupon(true);
+    
+    // Redirect to thank you page after showing coupon (for conversion tracking)
+    setTimeout(() => {
+      window.location.href = '/contact-success';
+    }, 8000); // Give user time to see and copy their coupon code
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
