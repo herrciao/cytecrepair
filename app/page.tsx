@@ -2,6 +2,7 @@ import ServiceCard from '@/components/ServiceCard';
 import AssessmentForm from '@/components/AssessmentForm';
 import FAQ from '@/components/FAQ';
 import ImageCarousel from '@/components/ImageCarousel';
+import DiscountPopup from '@/components/DiscountPopup';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -34,6 +35,9 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Discount Popup */}
+      <DiscountPopup />
+      
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
         <div className="container-custom">
@@ -47,10 +51,10 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="#contact" className="btn-primary bg-white text-primary-600 hover:bg-primary-50">
-                Request Free Online Assessment
+                Get Started
               </Link>
-              <Link href="#services" className="btn-secondary border-white text-white hover:bg-white/10">
-                View Services
+              <Link href="/repair-gallery" className="btn-primary bg-orange-500 text-white hover:bg-orange-600">
+                Check How Professional We Are!
               </Link>
             </div>
             

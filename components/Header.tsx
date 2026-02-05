@@ -50,7 +50,7 @@ export default function Header() {
               href="/#contact"
               className="btn-primary"
             >
-              Request Assessment
+              Contact Us
             </Link>
           </div>
 
@@ -110,7 +110,7 @@ export default function Header() {
                 className="btn-primary text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Request Assessment
+                Contact Us
               </Link>
             </div>
           </div>
