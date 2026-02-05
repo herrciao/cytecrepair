@@ -141,7 +141,7 @@ export default function ContactSuccessPage() {
                   📧 Please Check Your Email (Including Spam Folder)
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Our response will come from <strong>yschao@elixirfb.com</strong>. 
+                  Our expert team at <strong>ElixirFab</strong> will personally reach out to you via email. 
                   If you don&apos;t see it in your inbox within 24-48 hours, please check your spam/junk folder.
                 </p>
               </div>
