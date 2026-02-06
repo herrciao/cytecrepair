@@ -12,7 +12,7 @@ export default function ContactSuccessPage() {
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
       {/* Hero Section */}
       <section className="section-padding">
-        <div className="container max-w-3xl text-center">
+        <div className="max-w-3xl mx-auto px-4 text-center">
           {/* Success Icon */}
           <div className="mb-8 animate-bounce">
             <div className="inline-block bg-green-100 rounded-full p-6">
@@ -213,7 +213,7 @@ export default function ContactSuccessPage() {
 
       {/* Additional SEO Content */}
       <section className="bg-gray-50 py-12">
-        <div className="container max-w-3xl text-center">
+        <div className="max-w-3xl mx-auto px-4 text-center">
           <p className="text-sm text-gray-600">
             <strong>5 Axis Head Repair</strong> is an independent aftermarket service provider 
             specializing in repair and maintenance of machines equipped with two-axis milling heads. 
