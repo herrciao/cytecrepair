@@ -1,415 +1,265 @@
-import ServiceCard from '@/components/ServiceCard';
-import AssessmentForm from '@/components/AssessmentForm';
-import FAQ from '@/components/FAQ';
-import ImageCarousel from '@/components/ImageCarousel';
+import SimpleContactForm from '@/components/SimpleContactForm';
 import DiscountPopup from '@/components/DiscountPopup';
 import Link from 'next/link';
 
 export default function HomePage() {
-  const faqItems = [
-    {
-      question: 'Are you an authorized OEM service center?',
-      answer: 'No. We are an independent, non-OEM, aftermarket service provider. We are not authorized, certified, or affiliated with any original equipment manufacturer. We specialize in repair and rebuild services for machines equipped with Cytec two-axis milling heads.',
-    },
-    {
-      question: 'Do I need to ship my machine to you?',
-      answer: 'No. In most cases, we perform on-site assessment and repair, or you can ship specific components (spindle, rotary union, hydraulic aggregate) to us. We will guide you through the process after online assessment.',
-    },
-    {
-      question: 'How long does the assessment take?',
-      answer: 'Online pre-assessment typically takes 24-48 hours after we receive your photos, videos, and issue description. This helps us provide accurate diagnosis and reduce unnecessary downtime.',
-    },
-    {
-      question: 'What happens if my machine is still under OEM warranty?',
-      answer: 'If your machine is under active OEM warranty, we recommend contacting your OEM service provider first. Using independent aftermarket services may affect your warranty coverage. We primarily serve machines outside warranty periods or where OEM support is unavailable.',
-    },
-    {
-      question: 'Do you stock replacement parts?',
-      answer: 'We maintain a selective inventory of high-wear components and can source aftermarket replacement parts as needed. We always perform assessment before recommending parts to ensure accurate diagnosis and cost-effective solutions.',
-    },
-    {
-      question: 'Can you service machines outside my country?',
-      answer: 'Yes. We serve global customers (non-China focus). We can coordinate remote assessment, parts shipping, and technical guidance for local installation. On-site service may be available depending on location.',
-    },
-  ];
-
   return (
     <>
       {/* Discount Popup */}
       <DiscountPopup />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white section-padding">
+
+      {/* ============================================ */}
+      {/* SECTION 1: HERO — Problem-Driven Headline   */}
+      {/* ============================================ */}
+      <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16 md:py-24">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="heading-xl mb-6">
-              Independent Aftermarket Repair for Cytec M21 & G30 Two-Axis Heads
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+              Unstable Tool Clamping on M21 or G30?<br className="hidden md:block" />
+              Hydraulic Pressure Cycling?<br className="hidden md:block" />
+              5-Axis Head Alarm Won&apos;t Reset?
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100">
-              When your Cytec M21 or G30 equipped machine fails, downtime costs money. 
-              Over 10 years of experience serving M21 and G30 users worldwide with on-site and return-to-base repair services.
+            <p className="text-lg md:text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
+              We specialize in Cytec M21 &amp; G30 two-axis head repair and hydraulic system rebuild.
+              Independent aftermarket service &mdash; fast technical review, no sales pitch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#contact" className="btn-primary bg-white text-primary-600 hover:bg-primary-50">
-                Get Started
-              </Link>
-              <Link href="/repair-gallery" className="btn-primary bg-orange-500 text-white hover:bg-orange-600">
-                Check How Professional We Are!
-              </Link>
-            </div>
-            
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">24-48h</div>
-                <div className="text-primary-100">Assessment Response</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Global</div>
-                <div className="text-primary-100">Service Coverage</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-3xl font-bold mb-1">Independent</div>
-                <div className="text-primary-100">Aftermarket Expertise</div>
-              </div>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 font-bold text-lg rounded-md hover:bg-primary-50 transition-colors shadow-lg"
+              >
+                Submit Your Issue Now
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold text-lg rounded-md hover:bg-white/10 transition-colors"
+              >
+                Get Technical Review in 24 Hours
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="section-padding bg-secondary-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">What We Fix on M21 & G30 Systems</h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Specialized independent aftermarket repair services for common failure modes 
-              in Cytec M21 and G30 two-axis milling heads. Extensive experience with both models worldwide.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ServiceCard
-              title="Spindle Rotary Union Leakage"
-              description="Oil or coolant leaking from M21/G30 spindle area threatens bearing contamination and rapid failure."
-              href="/spindle-rotary-union-leakage"
-              icon={
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              }
-              symptoms={[
-                'Oil/coolant dripping from spindle',
-                'Visible fluid accumulation',
-                'Common on M21 and G30 models',
-              ]}
-            />
-
-            <ServiceCard
-              title="Spindle Repair & Rebuild"
-              description="M21 and G30 spindle issues: noise, vibration, overheating, or encoder problems. We stock replacement components."
-              href="/spindle-repair-rebuild"
-              icon={
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              }
-              symptoms={[
-                'M21/G30 spindle noise or vibration',
-                'Overheating during operation',
-                'Poor surface finish',
-                'Encoder signal errors',
-              ]}
-            />
-
-            <ServiceCard
-              title="Hydraulic Aggregate Issues"
-              description="M21/G30 hydraulic pressure problems: cannot hold pressure, unstable clamping, frequent alarms affecting head reliability."
-              href="/hydraulic-aggregate-pressure-issue"
-              icon={
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              }
-              symptoms={[
-                'Cannot build or hold pressure',
-                'Repeated pressure cycles on M21/G30',
-                'Unstable tool clamping',
-                'Hydraulic system alarms',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work Section */}
-      <section id="how-we-work" className="section-padding">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">How We Work</h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Assessment-first approach ensures accurate diagnosis and cost-effective solutions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full text-2xl font-bold mb-4">
-                1
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Intake</h3>
-              <p className="text-secondary-600">
-                Submit your issue description, photos, videos, and alarm codes through our assessment form.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full text-2xl font-bold mb-4">
-                2
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Online Assessment</h3>
-              <p className="text-secondary-600">
-                Our technicians review your submission within 24-48 hours and provide initial diagnosis.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full text-2xl font-bold mb-4">
-                3
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Repair / Rebuild</h3>
-              <p className="text-secondary-600">
-                Component-level repair, seal replacement, or full rebuild based on assessment findings.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-600 rounded-full text-2xl font-bold mb-4">
-                4
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Validation & Delivery</h3>
-              <p className="text-secondary-600">
-                Testing, validation, and return shipping with installation guidance if needed.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Independent Aftermarket Section */}
-      <section className="section-padding bg-secondary-50">
+      {/* ============================================ */}
+      {/* SECTION 2: SYMPTOM RECOGNITION               */}
+      {/* ============================================ */}
+      <section className="py-14 md:py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="heading-lg text-center mb-8">Over 10 Years Serving M21 & G30 Users Worldwide</h2>
-            
-            <div className="card p-8 space-y-6">
-              <p className="text-lg text-secondary-700">
-                We are an <strong>independent, non-OEM, aftermarket</strong> service provider specializing in 
-                Cytec M21 and G30 two-axis milling heads. We are not authorized, certified, or affiliated with any original equipment manufacturer.
-              </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 tracking-tight">
+              Common M21 / G30 Failure Symptoms
+            </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-lg mb-3 text-primary-600">Our Experience with M21 & G30</h3>
-                  <ul className="space-y-2 text-secondary-700">
-                    <li className="flex items-start">
-                      <span className="text-primary-600 mr-2">✓</span>
-                      <span>10+ years specialized experience with M21 and G30 models</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary-600 mr-2">✓</span>
-                      <span>On-site repair and return-to-base service worldwide</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary-600 mr-2">✓</span>
-                      <span>Preventive maintenance components to reduce downtime</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary-600 mr-2">✓</span>
-                      <span>Fast assessment and response for urgent failures</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-primary-600 mr-2">✓</span>
-                      <span>Planned maintenance parts supply for scheduled shutdowns</span>
-                    </li>
-                  </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5 mb-10">
+              {[
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  ),
+                  text: 'Repeated pressure build-up cycles',
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  ),
+                  text: 'Spindle rotary union leakage',
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                    </svg>
+                  ),
+                  text: 'Tool clamping unstable',
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  ),
+                  text: 'Hydraulic alarm',
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  ),
+                  text: 'Excessive vibration',
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+                    </svg>
+                  ),
+                  text: 'Abnormal temperature increase',
+                },
+              ].map((symptom, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-secondary-50 border border-secondary-100">
+                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-red-100 text-red-600">
+                    {symptom.icon}
+                  </div>
+                  <span className="text-secondary-800 font-medium">{symptom.text}</span>
                 </div>
+              ))}
+            </div>
 
-                <div>
-                  <h3 className="font-semibold text-lg mb-3 text-secondary-600">Service Approach</h3>
-                  <ul className="space-y-2 text-secondary-700">
-                    <li className="flex items-start">
-                      <span className="text-secondary-400 mr-2">•</span>
-                      <span>Assessment-first to identify exact issues</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-secondary-400 mr-2">•</span>
-                      <span>Not suitable for machines under active OEM warranty</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-secondary-400 mr-2">•</span>
-                      <span>No OEM certification or endorsement</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-secondary-400 mr-2">•</span>
-                      <span>Customer assumes responsibility for service choice</span>
-                    </li>
-                  </ul>
-                </div>
+            <p className="text-center text-secondary-700 text-lg font-medium bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              If you are seeing any of these, your head likely needs internal inspection.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 3: AUTHORITY (Trust Without Overclaiming) */}
+      {/* ============================================ */}
+      <section className="py-14 md:py-20 bg-secondary-50">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 tracking-tight">
+              Focused on Cytec 5-Axis Heads
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
+              <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-secondary-200">
+                <span className="text-primary-600 font-bold text-lg mt-0.5">&#10003;</span>
+                <span className="text-secondary-800">Independent aftermarket specialist &mdash; not affiliated with Cytec or any OEM</span>
               </div>
-
-              <div className="mt-6 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-                <h4 className="font-semibold text-lg mb-3 text-blue-900">Global M21 & G30 Support</h4>
-                <p className="text-blue-800">
-                  With thousands of Cytec M21 and G30 systems operating worldwide, we understand the challenges of maintaining 
-                  these critical machines. Our experience spans emergency repairs, scheduled maintenance, and preventive component 
-                  replacement to minimize production downtime.
-                </p>
+              <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-secondary-200">
+                <span className="text-primary-600 font-bold text-lg mt-0.5">&#10003;</span>
+                <span className="text-secondary-800">10+ years hands-on experience with M21 &amp; G30 units</span>
+              </div>
+              <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-secondary-200">
+                <span className="text-primary-600 font-bold text-lg mt-0.5">&#10003;</span>
+                <span className="text-secondary-800">On-site and return-to-base service worldwide</span>
+              </div>
+              <div className="flex items-start gap-3 p-4 bg-white rounded-lg border border-secondary-200">
+                <span className="text-primary-600 font-bold text-lg mt-0.5">&#10003;</span>
+                <span className="text-secondary-800">Assessment-first &mdash; no upselling before diagnosis</span>
               </div>
             </div>
+
+            <p className="text-secondary-600 text-sm">
+              All brand names and trademarks mentioned are the property of their respective owners.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Evidence Section - Repair Gallery Showcase */}
-      <section className="section-padding bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-lg mb-4">Our Work</h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
-              Real repair examples from our M21 & G30 service experience
-            </p>
-            <p className="text-sm text-secondary-500 mt-2 italic">
-              (Customer names and serial numbers anonymized for confidentiality)
-            </p>
-          </div>
-
-          {/* Featured Carousel - Auto-rotates every 3 seconds */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <ImageCarousel 
-              images={[
-                '/case-studies/rotary-union/IMG_0599.JPEG',
-                '/case-studies/rotary-union/IMG_0766.JPEG',
-                '/case-studies/rotary-union/IMG_0774.JPEG',
-                '/case-studies/spindle-repair/IMG_0002.JPEG',
-                '/case-studies/spindle-repair/IMG_0100.JPEG',
-                '/case-studies/spindle-repair/IMG_0610.JPEG',
-                '/case-studies/hydraulic-aggregate/IMG_0068.JPEG',
-                '/case-studies/hydraulic-aggregate/IMG_0145.JPEG',
-                '/case-studies/hydraulic-aggregate/IMG_0721.JPEG',
-              ]} 
-              interval={3000}
-              category="M21 & G30 Repair Cases"
-            />
-          </div>
-
-          {/* Category Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-            <Link href="/repair-gallery#rotary-union" className="card hover:shadow-xl transition-shadow group">
-              <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative overflow-hidden">
-                <svg className="w-16 h-16 text-blue-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
-                  Rotary Union Leakage
-                </h3>
-                <p className="text-sm text-secondary-600 mb-3">
-                  Oil & coolant leak repairs, seal replacements
-                </p>
-                <div className="text-primary-600 text-sm font-medium flex items-center">
-                  View Cases
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="/repair-gallery#spindle-repair" className="card hover:shadow-xl transition-shadow group">
-              <div className="aspect-video bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center relative overflow-hidden">
-                <svg className="w-16 h-16 text-green-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
-                  Spindle Repair & Rebuild
-                </h3>
-                <p className="text-sm text-secondary-600 mb-3">
-                  Complete overhauls, bearing & encoder repairs
-                </p>
-                <div className="text-primary-600 text-sm font-medium flex items-center">
-                  View Cases
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="/repair-gallery#hydraulic-aggregate" className="card hover:shadow-xl transition-shadow group">
-              <div className="aspect-video bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center relative overflow-hidden">
-                <svg className="w-16 h-16 text-orange-600 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-primary-600 transition-colors">
-                  Hydraulic Aggregate
-                </h3>
-                <p className="text-sm text-secondary-600 mb-3">
-                  Pressure issues, component replacements
-                </p>
-                <div className="text-primary-600 text-sm font-medium flex items-center">
-                  View Cases
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* View All Button */}
-          <div className="text-center mt-12">
-            <Link 
-              href="/repair-gallery"
-              className="inline-flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg hover:shadow-xl"
-            >
-              View All Repair Cases
-              <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="section-padding bg-secondary-50">
+      {/* ============================================ */}
+      {/* SECTION 4: PROCESS (Reduce Risk)             */}
+      {/* ============================================ */}
+      <section className="py-14 md:py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="heading-lg text-center mb-12">Frequently Asked Questions</h2>
-            <FAQ items={faqItems} />
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 tracking-tight">
+              How It Works
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                {
+                  step: '1',
+                  title: 'Submit',
+                  desc: 'Tell us your machine model and describe the issue.',
+                },
+                {
+                  step: '2',
+                  title: 'Review',
+                  desc: 'Engineer reviews your photos, videos, and alarm codes.',
+                },
+                {
+                  step: '3',
+                  title: 'Feedback',
+                  desc: 'Technical assessment delivered within 24 hours.',
+                },
+                {
+                  step: '4',
+                  title: 'Plan',
+                  desc: 'Repair or rebuild proposal with clear scope and timeline.',
+                },
+              ].map((item) => (
+                <div key={item.step} className="text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-600 text-white rounded-full text-xl font-bold mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-secondary-600 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="section-padding">
+      {/* ============================================ */}
+      {/* SECTION 5: URGENCY LINE                      */}
+      {/* ============================================ */}
+      <section className="py-10 md:py-14 bg-secondary-900 text-white">
+        <div className="container-custom text-center">
+          <p className="text-2xl md:text-3xl font-bold mb-6 tracking-tight">
+            Downtime costs more than repair.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-secondary-900 font-bold text-lg rounded-md hover:bg-secondary-100 transition-colors shadow-lg"
+          >
+            Get Technical Review in 24 Hours
+          </a>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 6: SIMPLE CONTACT FORM               */}
+      {/* ============================================ */}
+      <section id="contact" className="py-14 md:py-20 bg-secondary-50">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="heading-lg mb-4">Get Started</h2>
-              <p className="text-xl text-secondary-600">
-                Submit your issue for online assessment. Include photos, videos, and alarm descriptions 
-                to help us provide faster, more accurate diagnosis.
-              </p>
+          <div className="max-w-xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 tracking-tight">
+              Describe Your Issue
+            </h2>
+            <p className="text-center text-secondary-600 mb-8">
+              No sales call. Just a technical review from an engineer who knows M21 &amp; G30.
+            </p>
+            <div className="bg-white rounded-lg shadow-lg border border-secondary-200 p-6 md:p-8">
+              <SimpleContactForm />
             </div>
-            <AssessmentForm />
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* SECTION 7: LEGAL — handled by Footer.tsx     */}
+      {/* Footer already contains full legal disclaimer */}
+      {/* ============================================ */}
+
+      {/* Deeper Resources (low-key links for SEO) */}
+      <section className="py-8 bg-white border-t border-secondary-100">
+        <div className="container-custom">
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-secondary-500">
+            <Link href="/spindle-rotary-union-leakage" className="hover:text-primary-600 transition-colors">
+              Rotary Union Leakage
+            </Link>
+            <span className="text-secondary-300">|</span>
+            <Link href="/spindle-repair-rebuild" className="hover:text-primary-600 transition-colors">
+              Spindle Repair &amp; Rebuild
+            </Link>
+            <span className="text-secondary-300">|</span>
+            <Link href="/hydraulic-aggregate-pressure-issue" className="hover:text-primary-600 transition-colors">
+              Hydraulic Aggregate
+            </Link>
+            <span className="text-secondary-300">|</span>
+            <Link href="/repair-gallery" className="hover:text-primary-600 transition-colors">
+              Repair Gallery
+            </Link>
           </div>
         </div>
       </section>
