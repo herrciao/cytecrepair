@@ -43,6 +43,23 @@ export const m21Articles: KnowledgeArticle[] = [
     summary: 'When hydraulic alarms persist after reset attempts, systematic troubleshooting steps to identify the underlying issue.',
     published: true,
   },
+  // Rotary Union 預防性維護系列（Phase 2）
+  {
+    slug: 'rotary-union-daily-checks',
+    title: 'M21 Rotary Union: Simple Daily Checks That Prevent Costly Failures',
+    category: 'maintenance',
+    date: '2026-02-16',
+    summary: 'After 10+ years servicing M21 units worldwide, the 2-minute daily checks that catch seal problems before they become emergency shutdowns.',
+    published: true,
+  },
+  {
+    slug: 'rotary-union-costly-mistakes',
+    title: 'M21 Rotary Union: 5 Costly Mistakes We See Repeatedly',
+    category: 'maintenance',
+    date: '2026-02-16',
+    summary: 'Field data from hundreds of repairs — the preventable errors that destroy rotary union seals and escalate repair costs.',
+    published: true,
+  },
 ];
 
 /**

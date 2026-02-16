@@ -65,5 +65,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    // Knowledge Center - Rotary Union Maintenance Series (Phase 2)
+    {
+      url: `${baseUrl}/knowledge/cytec-m21/rotary-union-daily-checks`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/knowledge/cytec-m21/rotary-union-costly-mistakes`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ]
 }
