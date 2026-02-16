@@ -201,6 +201,70 @@ export default function M21KnowledgeHubPage() {
         </div>
       </section>
 
+      {/* Preventive Maintenance Guides */}
+      <section className="py-14 md:py-20 bg-primary-50 border-y border-primary-100">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="heading-lg text-center mb-4">Preventive Maintenance Guides</h2>
+            <p className="text-center text-secondary-600 mb-10 max-w-2xl mx-auto">
+              Field-tested maintenance advice from our repair bench. Learn what we wish every M21 operator knew before problems escalate.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Link 
+                href="/knowledge/cytec-m21/rotary-union-daily-checks" 
+                className="card hover:shadow-xl hover:border-primary-300 transition-all group bg-white"
+              >
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-green-100 text-green-600 group-hover:bg-primary-100 group-hover:text-primary-600 transition-colors">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-lg text-secondary-900 group-hover:text-primary-700 transition-colors">
+                    Rotary Union: Daily Checks
+                  </h3>
+                </div>
+                <p className="text-secondary-600 text-sm leading-relaxed mb-3">
+                  Simple 2-minute morning checks that catch seal problems before they become emergency shutdowns. Based on 10+ years of field experience.
+                </p>
+                <span className="text-primary-600 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read Prevention Guide
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+
+              <Link 
+                href="/knowledge/cytec-m21/rotary-union-costly-mistakes" 
+                className="card hover:shadow-xl hover:border-primary-300 transition-all group bg-white"
+              >
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-orange-100 text-orange-600 group-hover:bg-primary-100 group-hover:text-primary-600 transition-colors">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-lg text-secondary-900 group-hover:text-primary-700 transition-colors">
+                    Rotary Union: 5 Costly Mistakes
+                  </h3>
+                </div>
+                <p className="text-secondary-600 text-sm leading-relaxed mb-3">
+                  The preventable errors we see on our repair bench every month — and how they escalate from $800 seal replacement to $8,000+ rebuild.
+                </p>
+                <span className="text-primary-600 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read Common Mistakes
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Technical Resources */}
       <section className="py-14 md:py-20 bg-white">
         <div className="container-custom">
