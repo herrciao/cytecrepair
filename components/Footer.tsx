@@ -34,6 +34,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/knowledge/cytec-m21" className="hover:text-white transition-colors">
+                  M21 Knowledge Center
+                </Link>
+              </li>
+              <li>
                 <Link href="/spindle-rotary-union-leakage" className="hover:text-white transition-colors">
                   Spindle Rotary Union Leakage
                 </Link>

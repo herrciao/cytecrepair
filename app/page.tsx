@@ -60,6 +60,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   text: 'Repeated pressure build-up cycles',
+                  href: '/hydraulic-aggregate-pressure-issue',
                 },
                 {
                   icon: (
@@ -68,6 +69,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   text: 'Spindle rotary union leakage',
+                  href: '/spindle-rotary-union-leakage',
                 },
                 {
                   icon: (
@@ -76,6 +78,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   text: 'Tool clamping unstable',
+                  href: '/knowledge/cytec-m21/tool-clamping-unstable',
                 },
                 {
                   icon: (
@@ -84,6 +87,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   text: 'Hydraulic alarm',
+                  href: '/knowledge/cytec-m21/hydraulic-alarm-reset',
                 },
                 {
                   icon: (
@@ -92,6 +96,7 @@ export default function HomePage() {
                     </svg>
                   ),
                   text: 'Excessive vibration',
+                  href: '/spindle-repair-rebuild',
                 },
                 {
                   icon: (
@@ -100,20 +105,51 @@ export default function HomePage() {
                     </svg>
                   ),
                   text: 'Abnormal temperature increase',
+                  href: '/spindle-repair-rebuild',
                 },
               ].map((symptom, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-secondary-50 border border-secondary-100">
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-red-100 text-red-600">
+                <Link 
+                  key={i} 
+                  href={symptom.href}
+                  className="flex items-center gap-3 p-3 rounded-lg bg-secondary-50 border border-secondary-100 hover:border-primary-300 hover:bg-primary-50 transition-all cursor-pointer group"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-red-100 text-red-600 group-hover:bg-primary-100 group-hover:text-primary-600 transition-colors">
                     {symptom.icon}
                   </div>
-                  <span className="text-secondary-800 font-medium">{symptom.text}</span>
-                </div>
+                  <span className="text-secondary-800 font-medium group-hover:text-primary-700 transition-colors">{symptom.text}</span>
+                </Link>
               ))}
             </div>
 
             <p className="text-center text-secondary-700 text-lg font-medium bg-yellow-50 border border-yellow-200 rounded-lg p-4">
               If you are seeing any of these, your head likely needs internal inspection.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================ */}
+      {/* NEW: M21 KNOWLEDGE CENTER ENTRANCE          */}
+      {/* ============================================ */}
+      <section className="py-14 md:py-20 bg-primary-50 border-y border-primary-100">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 tracking-tight text-secondary-900">
+              M21 Technical Knowledge Center
+            </h2>
+            <p className="text-lg text-secondary-700 mb-8 max-w-2xl mx-auto">
+              Not ready to submit? Browse our technical guides built from real repair cases. 
+              Detailed symptom diagnosis, on-site checks, and troubleshooting steps for M21/G30 systems.
+            </p>
+            <Link 
+              href="/knowledge/cytec-m21"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-bold text-lg rounded-md hover:bg-primary-700 transition-colors shadow-lg"
+            >
+              <svg className="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Browse Knowledge Center
+            </Link>
           </div>
         </div>
       </section>

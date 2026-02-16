@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Repair Case Studies | 5 Axis Head Repair',
   description: 'Real-world repair examples of Cytec M21 and G30 two-axis milling head systems. Spindle rotary union leakage, spindle repair & rebuild, and hydraulic aggregate repairs.',
   keywords: 'repair examples, case studies, M21 repair, G30 repair, spindle repair gallery, rotary union repair, hydraulic aggregate repair',
+  alternates: {
+    canonical: 'https://5axisheadrepair.com/repair-gallery',
+  },
+  openGraph: {
+    title: 'Repair Case Studies | 5 Axis Head Repair',
+    description: 'Real-world repair examples of Cytec M21 and G30 two-axis milling head systems.',
+    url: 'https://5axisheadrepair.com/repair-gallery',
+  },
 };
 
 // 圖片資料結構（未來可從 API 或資料庫讀取）

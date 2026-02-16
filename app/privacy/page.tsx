@@ -5,6 +5,9 @@ import CookieSettingsButton from '@/components/CookieSettingsButton';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy policy and data protection information for M21 and G30 two-axis head repair services.',
+  alternates: {
+    canonical: 'https://5axisheadrepair.com/privacy',
+  },
 };
 
 export default function PrivacyPage() {

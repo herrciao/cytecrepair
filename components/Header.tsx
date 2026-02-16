@@ -29,6 +29,12 @@ export default function Header() {
               Services
             </Link>
             <Link
+              href="/knowledge/cytec-m21"
+              className="text-secondary-600 hover:text-primary-600 font-medium transition-colors"
+            >
+              Knowledge Center
+            </Link>
+            <Link
               href="/repair-gallery"
               className="text-secondary-600 hover:text-primary-600 font-medium transition-colors"
             >
@@ -39,12 +45,6 @@ export default function Header() {
               className="text-secondary-600 hover:text-primary-600 font-medium transition-colors"
             >
               How We Work
-            </Link>
-            <Link
-              href="/#faq"
-              className="text-secondary-600 hover:text-primary-600 font-medium transition-colors"
-            >
-              FAQ
             </Link>
             <Link
               href="/#contact"
@@ -85,6 +85,13 @@ export default function Header() {
                 Services
               </Link>
               <Link
+                href="/knowledge/cytec-m21"
+                className="text-secondary-600 hover:text-primary-600 font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Knowledge Center
+              </Link>
+              <Link
                 href="/repair-gallery"
                 className="text-secondary-600 hover:text-primary-600 font-medium"
                 onClick={() => setMobileMenuOpen(false)}
@@ -97,13 +104,6 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 How We Work
-              </Link>
-              <Link
-                href="/#faq"
-                className="text-secondary-600 hover:text-primary-600 font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                FAQ
               </Link>
               <Link
                 href="/#contact"

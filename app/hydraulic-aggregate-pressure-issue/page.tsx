@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import AssessmentForm from '@/components/AssessmentForm';
 import FAQ from '@/components/FAQ';
+import Breadcrumb from '@/components/Breadcrumb';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -13,9 +14,13 @@ export const metadata: Metadata = {
     'G30 hydraulic clamping issues',
     'M21 G30 pressure instability',
   ],
+  alternates: {
+    canonical: 'https://5axisheadrepair.com/hydraulic-aggregate-pressure-issue',
+  },
   openGraph: {
     title: 'Hydraulic Aggregate Pressure Issues | Cytec Two-Axis Head',
     description: 'Expert diagnosis and repair for hydraulic aggregate pressure issues on Cytec-equipped machines.',
+    url: 'https://5axisheadrepair.com/hydraulic-aggregate-pressure-issue',
   },
 };
 
@@ -49,11 +54,19 @@ export default function HydraulicAggregatePage() {
       <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white section-padding">
         <div className="container-custom">
           <div className="max-w-4xl">
-            <Link href="/" className="inline-flex items-center text-primary-100 hover:text-white mb-6 transition-colors">
+            <Breadcrumb
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },
+                { label: 'Hydraulic Aggregate Pressure' },
+              ]}
+            />
+            
+            <Link href="/knowledge/cytec-m21" className="inline-flex items-center text-primary-100 hover:text-white mb-6 transition-colors">
               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Home
+              Back to M21 Knowledge Center
             </Link>
             
             <h1 className="heading-xl mb-6">

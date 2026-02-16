@@ -26,10 +26,14 @@ export const metadata: Metadata = {
     'non-OEM repair services',
   ],
   authors: [{ name: '5 Axis Head Repair' }],
+  alternates: {
+    canonical: 'https://5axisheadrepair.com',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: '5 Axis Head Repair',
+    url: 'https://5axisheadrepair.com',
   },
   robots: {
     index: true,
@@ -45,6 +49,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Organization Schema - E-E-A-T Signal */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: '5 Axis Head Repair',
+              url: 'https://5axisheadrepair.com',
+              description: 'Independent aftermarket repair specialist for Cytec M21 and G30 two-axis milling heads. Over 10 years of specialized experience.',
+              foundingDate: '2014',
+              areaServed: 'Worldwide',
+              serviceType: [
+                'Spindle Repair',
+                'Rotary Union Repair',
+                'Hydraulic Aggregate Repair',
+                'Two-Axis Head Maintenance',
+              ],
+            }),
+          }}
+        />
+        
         {/* Google Ads Conversion Tracking - Global Tag */}
         <script
           async
