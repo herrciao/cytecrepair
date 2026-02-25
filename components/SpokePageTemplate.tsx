@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 interface SpokeSection {
   heading: string;
-  content: string | string[];
+  content: string | string[] | React.ReactNode;
   type?: 'text' | 'checklist' | 'ordered';
   image?: {
     src: string;
@@ -67,7 +67,11 @@ export default function SpokePageTemplate({
   hubHref = '/knowledge/cytec-m21',
   hubLabel = 'M21 Knowledge Center',
 }: SpokePageTemplateProps) {
-  const renderContent = (content: string | string[], type?: string) => {
+  const renderContent = (content: string | string[] | React.ReactNode, type?: string) => {
+    if (typeof content !== 'string' && !Array.isArray(content)) {
+      return <div className="text-secondary-700 leading-relaxed space-y-4">{content}</div>;
+    }
+
     if (typeof content === 'string') {
       return <p className="text-secondary-700 leading-relaxed">{content}</p>;
     }

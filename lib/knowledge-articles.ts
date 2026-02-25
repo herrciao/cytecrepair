@@ -60,6 +60,15 @@ export const m21Articles: KnowledgeArticle[] = [
     summary: 'Field data from hundreds of repairs — the preventable errors that destroy rotary union seals and escalate repair costs.',
     published: true,
   },
+  // 主軸端面漏油診斷（Phase 3）
+  {
+    slug: 'spindle-face-oil-leak',
+    title: 'Spindle Face Oil Leak: Identify the Source & Fix It Fast',
+    category: 'symptom',
+    date: '2026-02-25',
+    summary: 'Oil on the spindle face can come from multiple sources. Step-by-step diagnosis to identify the fluid, locate the leak path, and confirm the root cause.',
+    published: true,
+  },
 ];
 
 /**
