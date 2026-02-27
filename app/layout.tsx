@@ -6,6 +6,7 @@ import { ConsentProvider } from '@/components/ConsentProvider';
 import CookieBanner from '@/components/CookieBanner';
 import CookiePreferences from '@/components/CookiePreferences';
 import AnalyticsScripts from '@/components/AnalyticsScripts';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://5axisheadrepair.com'),
@@ -95,6 +96,7 @@ export default function RootLayout({
           <CookieBanner />
           <CookiePreferences />
           <AnalyticsScripts />
+          <Analytics />
         </ConsentProvider>
       </body>
     </html>
