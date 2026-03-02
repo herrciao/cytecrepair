@@ -69,6 +69,15 @@ export const m21Articles: KnowledgeArticle[] = [
     summary: 'Oil on the spindle face can come from multiple sources. Step-by-step diagnosis to identify the fluid, locate the leak path, and confirm the root cause.',
     published: true,
   },
+  // 案例實績系列（Phase 3 Case Studies）
+  {
+    slug: 'case-spindle-oil-leak-rotary-union',
+    title: 'Case Study: Spindle Face Oil Leak — Same-Day Root Cause & Repair',
+    category: 'case',
+    date: '2026-03-02',
+    summary: 'Hydraulic oil leaking from the spindle face drain hole on a gantry five-axis machine. Full diagnosis from fluid identification to rotary union seal failure confirmation — resolved same day with spare parts on site.',
+    published: true,
+  },
 ];
 
 /**
