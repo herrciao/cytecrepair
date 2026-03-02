@@ -275,14 +275,75 @@ export default function M21KnowledgeHubPage() {
         </div>
       </section>
 
-      {/* Technical Resources */}
+      {/* Case Studies */}
       <section className="py-14 md:py-20 bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="heading-lg text-center mb-4">Case Studies</h2>
+            <p className="text-center text-secondary-600 mb-10 max-w-2xl mx-auto">
+              Real repair cases with complete diagnostic chains — from first symptom to root cause confirmation and same-day resolution.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Link
+                href="/knowledge/cytec-m21/case-spindle-oil-leak-rotary-union"
+                className="card hover:shadow-xl hover:border-primary-300 transition-all group bg-white"
+              >
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 text-blue-600 group-hover:bg-primary-100 group-hover:text-primary-600 transition-colors">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Case Study</span>
+                    <h3 className="font-bold text-lg text-secondary-900 group-hover:text-primary-700 transition-colors mt-0.5">
+                      Spindle Face Oil Leak — Same-Day Root Cause & Repair
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-secondary-600 text-sm leading-relaxed mb-3">
+                  Hydraulic oil leaking from the spindle face drain hole. Full chain: fluid ID → 5-point leak path elimination → rotary union seal failure confirmed. Resolved same day with spare on site.
+                </p>
+                <span className="text-primary-600 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read Case Study
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+
+              <div className="card bg-secondary-50 border-secondary-200 border-dashed">
+                <div className="flex items-start gap-4 mb-3">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-secondary-100 text-secondary-400">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-secondary-400 uppercase tracking-wide">Coming Soon</span>
+                    <h3 className="font-bold text-lg text-secondary-500 mt-0.5">
+                      CTS Coolant Leak — Ceramic Seal Failure
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-secondary-500 text-sm leading-relaxed">
+                  Spindle face spraying coolant on CTS activation. Trigger-test diagnosis pointing to rotary union ceramic seal failure — same-day resolution.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Resources */}
+      <section className="py-14 md:py-20 bg-secondary-50">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h2 className="heading-lg text-center mb-12">Technical Resources</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Link href="/repair-gallery" className="card hover:shadow-lg transition-shadow">
+              <Link href="/repair-gallery" className="card hover:shadow-lg transition-shadow bg-white">
                 <h3 className="font-bold text-lg mb-2 text-secondary-900">Repair Case Gallery</h3>
                 <p className="text-secondary-600 text-sm mb-3">
                   Real-world examples: before/after photos, repair procedures, outcomes.
@@ -290,7 +351,7 @@ export default function M21KnowledgeHubPage() {
                 <span className="text-primary-600 text-sm font-medium">View Cases →</span>
               </Link>
               
-              <div className="card bg-secondary-50 border-secondary-200">
+              <div className="card bg-white border-secondary-200">
                 <h3 className="font-bold text-lg mb-2 text-secondary-700">Coming Soon</h3>
                 <ul className="text-secondary-600 text-sm space-y-2">
                   <li>• How to Submit Data (photo/video guide)</li>
