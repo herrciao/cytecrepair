@@ -313,24 +313,33 @@ export default function M21KnowledgeHubPage() {
                 </span>
               </Link>
 
-              <div className="card bg-secondary-50 border-secondary-200 border-dashed">
+              <Link
+                href="/knowledge/cytec-m21/case-spindle-cts-leak-ceramic-seal"
+                className="card hover:shadow-xl hover:border-primary-300 transition-all group bg-white"
+              >
                 <div className="flex items-start gap-4 mb-3">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-secondary-100 text-secondary-400">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 text-blue-600 group-hover:bg-primary-100 group-hover:text-primary-600 transition-colors">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                     </svg>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-secondary-400 uppercase tracking-wide">Coming Soon</span>
-                    <h3 className="font-bold text-lg text-secondary-500 mt-0.5">
-                      CTS Coolant Leak — Ceramic Seal Failure
+                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Case Study</span>
+                    <h3 className="font-bold text-lg text-secondary-900 group-hover:text-primary-700 transition-colors mt-0.5">
+                      CTS Coolant Leak — Ceramic Seal Failure & Same-Day Fix
                     </h3>
                   </div>
                 </div>
-                <p className="text-secondary-500 text-sm leading-relaxed">
-                  Spindle face spraying coolant on CTS activation. Trigger-test diagnosis pointing to rotary union ceramic seal failure — same-day resolution.
+                <p className="text-secondary-600 text-sm leading-relaxed mb-3">
+                  Through-spindle coolant spraying from drain hole on CTS activation. Trigger-test → ceramic seal failure confirmed. Includes 3-stage escalation risk and CTS filtration guidelines.
                 </p>
-              </div>
+                <span className="text-primary-600 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Read Case Study
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
             </div>
           </div>
         </div>

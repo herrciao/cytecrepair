@@ -78,6 +78,14 @@ export const m21Articles: KnowledgeArticle[] = [
     summary: 'Hydraulic oil leaking from the spindle face drain hole on a gantry five-axis machine. Full diagnosis from fluid identification to rotary union seal failure confirmation — resolved same day with spare parts on site.',
     published: true,
   },
+  {
+    slug: 'case-spindle-cts-leak-ceramic-seal',
+    title: 'Case Study: CTS Coolant Leak at Spindle Face — Ceramic Seal Failure & Same-Day Resolution',
+    category: 'case',
+    date: '2026-03-02',
+    summary: 'Through-spindle coolant spraying from the spindle face drain hole on CTS activation. Trigger-test diagnosis confirmed rotary union ceramic seal failure — replaced same day with filtration recommendations to prevent recurrence.',
+    published: true,
+  },
 ];
 
 /**
