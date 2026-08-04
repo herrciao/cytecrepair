@@ -1,0 +1,27 @@
+{
+  "version": "0.1",
+  "goal": "Publish at least one technically human-reviewed, high-intent M21 article per week and grow non-branded organic discovery and qualified repair enquiries.",
+  "cadence": "weekly",
+  "candidateCount": 5,
+  "publicationTargetPerWeek": 1,
+  "requiredGates": [
+    "human-technical-review",
+    "seo-check",
+    "production-build",
+    "owner-publish-authorization"
+  ],
+  "measurementDays": [7, 28, 90],
+  "pilotWeeks": 4,
+  "automationAfterPilotReviewOnly": true,
+  "excluded": [
+    "crm",
+    "supplier-agent",
+    "cold-call-agent",
+    "dashboard",
+    "multi-agent-orchestration",
+    "unattended-publishing",
+    "email-automation",
+    "mac-mini-scheduling",
+    "daily-mass-publishing"
+  ]
+}
