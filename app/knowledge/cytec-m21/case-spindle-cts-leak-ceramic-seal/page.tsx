@@ -32,6 +32,7 @@ export default function CaseSpindleCtsLeakCeramicSealPage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="case-spindle-cts-leak-ceramic-seal"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

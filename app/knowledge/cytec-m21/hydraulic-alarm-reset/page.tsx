@@ -30,6 +30,7 @@ export default function HydraulicAlarmResetPage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="hydraulic-alarm-reset"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

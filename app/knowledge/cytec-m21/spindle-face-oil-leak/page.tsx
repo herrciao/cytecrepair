@@ -31,6 +31,7 @@ export default function SpindleFaceOilLeakPage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="spindle-face-oil-leak"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

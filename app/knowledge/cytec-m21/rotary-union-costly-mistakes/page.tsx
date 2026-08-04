@@ -30,6 +30,7 @@ export default function RotaryUnionCostlyMistakesPage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="rotary-union-costly-mistakes"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

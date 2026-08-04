@@ -30,6 +30,7 @@ export default function ToolClampingUnstablePage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="tool-clamping-unstable"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

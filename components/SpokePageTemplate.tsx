@@ -3,6 +3,11 @@ import AssessmentForm from './AssessmentForm';
 import FAQ from './FAQ';
 import Breadcrumb from './Breadcrumb';
 import Link from 'next/link';
+import {
+  getM21ArticleBySlug,
+  getM21ArticleUrl,
+  SITE_URL,
+} from '@/lib/knowledge-articles';
 
 interface SpokeSection {
   heading: string;
@@ -22,6 +27,9 @@ interface FAQItem {
 }
 
 interface SpokePageTemplateProps {
+  // Canonical knowledge registry entry used for TechArticle schema
+  articleSlug: string;
+
   // Breadcrumb
   breadcrumbItems: Array<{ label: string; href?: string }>;
   
@@ -55,6 +63,7 @@ interface SpokePageTemplateProps {
 }
 
 export default function SpokePageTemplate({
+  articleSlug,
   breadcrumbItems,
   title,
   subtitle,
@@ -67,6 +76,34 @@ export default function SpokePageTemplate({
   hubHref = '/knowledge/cytec-m21',
   hubLabel = 'M21 Knowledge Center',
 }: SpokePageTemplateProps) {
+  const article = getM21ArticleBySlug(articleSlug);
+
+  if (!article) {
+    throw new Error(`Published knowledge article is not registered: ${articleSlug}`);
+  }
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': article.category === 'case' ? 'Article' : 'TechArticle',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.publishedAt,
+    dateModified: article.modifiedAt,
+    mainEntityOfPage: getM21ArticleUrl(article.slug),
+    author: {
+      '@type': 'Organization',
+      name: '5 Axis Head Repair',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: '5 Axis Head Repair',
+      url: SITE_URL,
+    },
+    about: article.targetKeyword,
+    keywords: [article.targetKeyword, ...article.secondaryKeywords].join(', '),
+  };
+
   const renderContent = (content: string | string[] | React.ReactNode, type?: string) => {
     if (typeof content !== 'string' && !Array.isArray(content)) {
       return <div className="text-secondary-700 leading-relaxed space-y-4">{content}</div>;
@@ -115,6 +152,10 @@ export default function SpokePageTemplate({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white section-padding">
         <div className="container-custom">

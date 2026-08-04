@@ -32,6 +32,7 @@ export default function CaseSpindleOilLeakRotaryUnionPage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="case-spindle-oil-leak-rotary-union"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

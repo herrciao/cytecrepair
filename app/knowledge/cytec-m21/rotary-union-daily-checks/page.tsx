@@ -30,6 +30,7 @@ export default function RotaryUnionDailyChecksPage() {
 
   return (
     <SpokePageTemplate
+      articleSlug="rotary-union-daily-checks"
       breadcrumbItems={[
         { label: 'Home', href: '/' },
         { label: 'M21 Knowledge Center', href: '/knowledge/cytec-m21' },

@@ -1,88 +1,67 @@
 import { MetadataRoute } from 'next'
+import {
+  getM21ArticleUrl,
+  getPublishedM21Articles,
+  SITE_URL,
+} from '@/lib/knowledge-articles'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://5axisheadrepair.com'
-  const currentDate = new Date()
-  
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     // Homepage
     {
-      url: baseUrl,
-      lastModified: currentDate,
+      url: SITE_URL,
+      lastModified: new Date('2026-07-20'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     // Existing service pages
     {
-      url: `${baseUrl}/spindle-rotary-union-leakage`,
-      lastModified: currentDate,
+      url: `${SITE_URL}/spindle-rotary-union-leakage`,
+      lastModified: new Date('2026-02-16'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/spindle-repair-rebuild`,
-      lastModified: currentDate,
+      url: `${SITE_URL}/spindle-repair-rebuild`,
+      lastModified: new Date('2026-02-16'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/hydraulic-aggregate-pressure-issue`,
-      lastModified: currentDate,
+      url: `${SITE_URL}/hydraulic-aggregate-pressure-issue`,
+      lastModified: new Date('2026-02-16'),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     // Repair gallery
     {
-      url: `${baseUrl}/repair-gallery`,
-      lastModified: currentDate,
+      url: `${SITE_URL}/repair-gallery`,
+      lastModified: new Date('2026-02-16'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     // Privacy page
     {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
+      url: `${SITE_URL}/privacy`,
+      lastModified: new Date('2026-02-16'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     // Knowledge Center - Pillar Hub (will be added in Phase 1)
     {
-      url: `${baseUrl}/knowledge/cytec-m21`,
-      lastModified: currentDate,
+      url: `${SITE_URL}/knowledge/cytec-m21`,
+      lastModified: new Date('2026-03-09'),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    // Knowledge Center - Spoke pages (will be added in Phase 1)
-    {
-      url: `${baseUrl}/knowledge/cytec-m21/tool-clamping-unstable`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/knowledge/cytec-m21/hydraulic-alarm-reset`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    // Knowledge Center - Rotary Union Maintenance Series (Phase 2)
-    {
-      url: `${baseUrl}/knowledge/cytec-m21/rotary-union-daily-checks`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/knowledge/cytec-m21/rotary-union-costly-mistakes`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/knowledge/cytec-m21/spindle-face-oil-leak`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
   ]
+
+  const knowledgePages: MetadataRoute.Sitemap = getPublishedM21Articles().map((article) => ({
+    url: getM21ArticleUrl(article.slug),
+    lastModified: new Date(article.modifiedAt),
+    changeFrequency: 'monthly',
+    priority: article.category === 'case' ? 0.75 : 0.7,
+  }))
+
+  return [...staticPages, ...knowledgePages]
 }

@@ -1,126 +1,71 @@
-/**
- * Knowledge Center 文章登錄系統
- * 
- * 所有 Knowledge Center 的文章都在這裡登記
- * Hub 頁面和 Sitemap 會自動從這裡讀取
- */
+import articleData from '@/content/knowledge-articles.json';
+
+export type KnowledgeCategory = 'symptom' | 'component' | 'case' | 'maintenance' | 'guide';
+export type SearchIntent = 'diagnostic' | 'repair' | 'preventive' | 'case-evidence';
+export type ArticleCta = 'assessment' | 'contact';
 
 export interface KnowledgeArticle {
   slug: string;
   title: string;
-  category: 'symptom' | 'component' | 'case' | 'maintenance' | 'guide';
-  date: string;
+  description: string;
+  category: KnowledgeCategory;
+  publishedAt: string;
+  modifiedAt: string;
+  targetKeyword: string;
+  secondaryKeywords: string[];
+  searchIntent: SearchIntent;
   summary: string;
+  relatedSlugs: string[];
+  cta: ArticleCta;
   thumbnail?: string;
-  // 是否已發布（未來可用於草稿功能）
   published: boolean;
 }
 
-/**
- * M21 Knowledge Center 文章列表
- * 
- * 新增文章步驟：
- * 1. 在這個陣列加入新文章的 metadata
- * 2. 建立對應的 app/knowledge/cytec-m21/[slug]/page.tsx
- * 3. 把照片放到 public/knowledge/cytec-m21/[slug]/
- * 4. Hub 和 Sitemap 會自動更新
- */
-export const m21Articles: KnowledgeArticle[] = [
-  // 初始 Spoke 頁面（Phase 1）
-  {
-    slug: 'tool-clamping-unstable',
-    title: 'Tool Clamping Unstable: Symptoms & Diagnosis',
-    category: 'symptom',
-    date: '2026-02-16',
-    summary: 'Intermittent or weak tool clamping force, how to diagnose the root cause, and what data to collect for assessment.',
-    published: true,
-  },
-  {
-    slug: 'hydraulic-alarm-reset',
-    title: 'Hydraulic Alarm Won\'t Reset: Quick Diagnosis Checklist',
-    category: 'symptom',
-    date: '2026-02-16',
-    summary: 'When hydraulic alarms persist after reset attempts, systematic troubleshooting steps to identify the underlying issue.',
-    published: true,
-  },
-  // Rotary Union 預防性維護系列（Phase 2）
-  {
-    slug: 'rotary-union-daily-checks',
-    title: 'M21 Rotary Union: Simple Daily Checks That Prevent Costly Failures',
-    category: 'maintenance',
-    date: '2026-02-16',
-    summary: 'After 10+ years servicing M21 units worldwide, the 2-minute daily checks that catch seal problems before they become emergency shutdowns.',
-    published: true,
-  },
-  {
-    slug: 'rotary-union-costly-mistakes',
-    title: 'M21 Rotary Union: 5 Costly Mistakes We See Repeatedly',
-    category: 'maintenance',
-    date: '2026-02-16',
-    summary: 'Field data from hundreds of repairs — the preventable errors that destroy rotary union seals and escalate repair costs.',
-    published: true,
-  },
-  // 主軸端面漏油診斷（Phase 3）
-  {
-    slug: 'spindle-face-oil-leak',
-    title: 'Spindle Face Oil Leak: Identify the Source & Fix It Fast',
-    category: 'symptom',
-    date: '2026-02-25',
-    summary: 'Oil on the spindle face can come from multiple sources. Step-by-step diagnosis to identify the fluid, locate the leak path, and confirm the root cause.',
-    published: true,
-  },
-  // 案例實績系列（Phase 3 Case Studies）
-  {
-    slug: 'case-spindle-oil-leak-rotary-union',
-    title: 'Case Study: Spindle Face Oil Leak — Same-Day Root Cause & Repair',
-    category: 'case',
-    date: '2026-03-02',
-    summary: 'Hydraulic oil leaking from the spindle face drain hole on a gantry five-axis machine. Full diagnosis from fluid identification to rotary union seal failure confirmation — resolved same day with spare parts on site.',
-    published: true,
-  },
-  {
-    slug: 'case-spindle-cts-leak-ceramic-seal',
-    title: 'Case Study: CTS Coolant Leak at Spindle Face — Ceramic Seal Failure & Same-Day Resolution',
-    category: 'case',
-    date: '2026-03-02',
-    summary: 'Through-spindle coolant spraying from the spindle face drain hole on CTS activation. Trigger-test diagnosis confirmed rotary union ceramic seal failure — replaced same day with filtration recommendations to prevent recurrence.',
-    published: true,
-  },
-];
+export const M21_KNOWLEDGE_BASE_PATH = '/knowledge/cytec-m21';
+export const SITE_URL = 'https://5axisheadrepair.com';
 
-/**
- * 取得所有已發布的 M21 文章
- */
+// Canonical source: content/knowledge-articles.json
+export const m21Articles = articleData as KnowledgeArticle[];
+
 export function getPublishedM21Articles(): KnowledgeArticle[] {
-  return m21Articles.filter(article => article.published);
+  return m21Articles
+    .filter((article) => article.published)
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }
 
-/**
- * 取得特定分類的文章
- */
-export function getM21ArticlesByCategory(
-  category: KnowledgeArticle['category']
-): KnowledgeArticle[] {
-  return m21Articles.filter(
-    article => article.published && article.category === category
-  );
+export function getM21ArticlesByCategory(category: KnowledgeCategory): KnowledgeArticle[] {
+  return getPublishedM21Articles().filter((article) => article.category === category);
 }
 
-/**
- * 取得單篇文章（用於 Related Articles）
- */
 export function getM21ArticleBySlug(slug: string): KnowledgeArticle | undefined {
-  return m21Articles.find(article => article.slug === slug && article.published);
+  return m21Articles.find((article) => article.slug === slug && article.published);
+}
+
+export function getM21ArticlePath(slug: string): string {
+  return `${M21_KNOWLEDGE_BASE_PATH}/${slug}`;
+}
+
+export function getM21ArticleUrl(slug: string): string {
+  return `${SITE_URL}${getM21ArticlePath(slug)}`;
 }
 
 /**
- * 取得除了當前文章外的相關文章（用於 Related Issues）
+ * Related content is editorially intentional and comes from relatedSlugs.
+ * Missing or unpublished targets are omitted instead of being replaced with
+ * arbitrary articles.
  */
 export function getRelatedM21Articles(
   currentSlug: string,
-  limit: number = 3
+  limit: number = 3,
 ): KnowledgeArticle[] {
-  return m21Articles
-    .filter(article => article.published && article.slug !== currentSlug)
+  const current = getM21ArticleBySlug(currentSlug);
+
+  if (!current) {
+    return [];
+  }
+
+  return current.relatedSlugs
+    .map((slug) => getM21ArticleBySlug(slug))
+    .filter((article): article is KnowledgeArticle => Boolean(article))
     .slice(0, limit);
 }

@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/Breadcrumb';
+import {
+  getM21ArticlePath,
+  getPublishedM21Articles,
+} from '@/lib/knowledge-articles';
 
 export const metadata: Metadata = {
   title: 'Cytec M21 Repair Guide & Technical Knowledge Center',
@@ -24,6 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default function M21KnowledgeHubPage() {
+  const allArticles = getPublishedM21Articles();
   // Symptom cards linking to both existing service pages and new spoke pages
   const symptomCards = [
     {
@@ -340,6 +345,37 @@ export default function M21KnowledgeHubPage() {
                   </svg>
                 </span>
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Registry-driven complete article index */}
+      <section className="py-14 md:py-20 bg-primary-50 border-y border-primary-100">
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="heading-lg text-center mb-4">All M21 Technical Articles</h2>
+            <p className="text-center text-secondary-600 mb-10 max-w-2xl mx-auto">
+              Browse every published symptom guide, maintenance article, and anonymized repair case in the M21 Knowledge Center.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {allArticles.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={getM21ArticlePath(article.slug)}
+                  className="card bg-white hover:shadow-lg hover:border-primary-300 transition-all"
+                >
+                  <span className="text-xs font-semibold text-primary-700 uppercase tracking-wide">
+                    {article.category}
+                  </span>
+                  <h3 className="font-bold text-lg text-secondary-900 mt-2 mb-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-secondary-600 text-sm leading-relaxed">
+                    {article.summary}
+                  </p>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
