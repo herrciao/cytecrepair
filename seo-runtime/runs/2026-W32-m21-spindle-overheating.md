@@ -5,11 +5,11 @@
 - Run ID: `2026-W32`
 - Week: 2026-W32
 - Owner: 5 Axis Head Repair
-- Status: `validated`
+- Status: `published`
 - Selected brief: `seo-runtime/briefs/2026-W32-m21-spindle-overheating.md`
 - Working branch: `codex/seo-runtime-v0.1`
-- Production URL: not created
-- Commit: pending
+- Production URL: `https://www.5axisheadrepair.com/knowledge/cytec-m21/spindle-overheating`
+- Commit: `b51eba8`
 
 ## Inputs
 
@@ -84,9 +84,9 @@ These sources establish result types and topic coverage. They do not replace own
 ## Publication
 
 - Owner authorized publication: yes, 2026-08-05.
-- Merge/publish date: pending.
-- Production URL verified: pending.
-- Index request/status: pending.
+- Merge/publish date: 2026-08-05.
+- Production URL verified: yes; live H1, canonical, safety disclaimer, PT100/KTY84 context, 20 μm reference, TechArticle schema, and assessment category checked.
+- Index request/status: published; Google discovery/indexing pending.
 
 ## Feedback
 
@@ -98,6 +98,6 @@ These sources establish result types and topic coverage. They do not replace own
 
 ## Next action
 
-- Decision: wait for human technical review.
-- Evidence: seven owner questions above.
-- Next step: owner answers from real M21 experience; revise the brief, then request explicit approval before drafting/building.
+- Decision: measure.
+- Evidence: owner-approved field interview, production validation, and successful SEO/build checks.
+- Next step: check discovery/index status at 7 days and record Search Console performance at 7, 28, and 90 days.
