@@ -27,6 +27,16 @@ export default function AssessmentForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  const standardIssueOptions = [
+    { value: 'General', label: 'General Inquiry' },
+    { value: 'Spindle Rotary Union Leakage', label: 'Spindle Rotary Union Leakage' },
+    { value: 'Spindle Repair & Rebuild', label: 'Spindle Repair & Rebuild' },
+    { value: 'Hydraulic Aggregate', label: 'Hydraulic Aggregate - Pressure Issue' },
+  ];
+  const issueOptions = standardIssueOptions.some((option) => option.value === issueType)
+    ? standardIssueOptions
+    : [{ value: issueType, label: issueType }, ...standardIssueOptions];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -178,10 +188,11 @@ export default function AssessmentForm({
             onChange={handleChange}
             className="w-full px-4 py-2 border border-secondary-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
           >
-            <option value="General">General Inquiry</option>
-            <option value="Spindle Rotary Union Leakage">Spindle Rotary Union Leakage</option>
-            <option value="Spindle Repair & Rebuild">Spindle Repair & Rebuild</option>
-            <option value="Hydraulic Aggregate">Hydraulic Aggregate - Pressure Issue</option>
+            {issueOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
         </div>
 

@@ -5,7 +5,7 @@
 - Run ID: `2026-W32`
 - Week: 2026-W32
 - Owner: 5 Axis Head Repair
-- Status: `waiting-technical-review`
+- Status: `validated`
 - Selected brief: `seo-runtime/briefs/2026-W32-m21-spindle-overheating.md`
 - Working branch: `codex/seo-runtime-v0.1`
 - Production URL: not created
@@ -15,10 +15,10 @@
 
 - Search Console period/file: `https://www.5axisheadrepair.com/`, previous 3 months export; actual daily data 2026-07-19 through 2026-08-02.
 - Existing site inventory checked: 7 M21 articles, M21 pillar, 3 service pages.
-- Owner repair evidence: not yet supplied for this topic.
-- Enquiry/customer-language evidence: not yet supplied.
+- Owner repair evidence: after-sales engineer interview supplied by the owner on 2026-08-05, followed by owner corrections and publication approval.
+- Enquiry/customer-language evidence: interview described customer-facing bearing/motor temperature alarms and the field questions used to isolate the issue.
 - SERP research date and market: 2026-08-04, English-language web results without a country filter.
-- Missing inputs: disclosed GSC queries, Domain-property data, real M21 overheating case evidence, owner-confirmed diagnostic sequence.
+- Missing inputs: disclosed GSC queries and Domain-property data. The technical sequence is now owner-confirmed.
 
 Search Console Baseline 0: 0 clicks, 13 property-level impressions, 0% CTR, average position 6.8. No query rows were disclosed. These values are not estimates.
 
@@ -44,7 +44,7 @@ Scoring formula: commercial fit + site gap + evidence + link value − cannibali
 
 ## Technical review
 
-- Claims requiring confirmation:
+- Claims reviewed:
   1. What real M21 overheating or abnormal-temperature cases have you handled?
   2. What did the customer first observe: temperature, alarm, noise, vibration, accuracy drift, shutdown, or another pattern?
   3. Which systems do you actually isolate first: coolant/chiller flow, spindle cooling circuit, bearings, lubrication, motor/load, sensor, or something else?
@@ -52,13 +52,13 @@ Scoring formula: commercial fit + site gap + evidence + link value − cannibali
   5. What data should the customer send: temperature trend, RPM/load, warm-up duration, alarm code, chiller readings, video/audio, thermal image, or photos?
   6. What are the stop-operation signs? Avoid exact temperature limits unless you can verify them for the relevant M21 configuration.
   7. Do you have anonymized photos, measurements, or a completed repair outcome that may be published?
-- Evidence supplied: pending owner response.
+- Evidence supplied: owner interview with an after-sales engineer experienced in Cytec fault handling; owner clarified that the public wording should use "bearing damage," that sensor values are approximate and manual-dependent, and that the runout reference is 20 μm.
 - Reviewer: owner.
-- Decision: `pending`.
-- Approval date: pending.
-- Required corrections: pending.
+- Decision: `approved` for English publication with a prominent safety disclaimer.
+- Approval date: 2026-08-05.
+- Required corrections: do not name the engineer; state that PT100, KTY84, and other sensors may differ; require the correct manual; present approximately 125 Ω/65°C and 20 μm only as contextual field references; advise qualified assistance and conservative shutdown.
 
-The run cannot advance beyond `waiting-technical-review` while the decision is pending.
+The required human technical-review gate was satisfied before page creation.
 
 ## SERP evidence log
 
@@ -72,18 +72,18 @@ These sources establish result types and topic coverage. They do not replace own
 
 ## Build and validation
 
-- Registry entry: not created before approval.
-- Hub discovery: not created before approval.
-- Sitemap: not created before approval.
-- Related links: proposed only.
-- Structured data: proposed `TechArticle`.
-- `npm run seo:check`: not applicable before page creation.
-- `npm run build`: not applicable before page creation.
-- Manual review: pending.
+- Registry entry: created in `content/knowledge-articles.json`.
+- Hub discovery: generated from registry.
+- Sitemap: generated from registry with 2026-08-05 modification date.
+- Related links: three explicit knowledge links plus inline spindle-repair service link.
+- Structured data: `TechArticle` generated from registry.
+- `npm run seo:check`: passed for 8 published articles.
+- `npm run build`: passed; 21 static pages generated.
+- Manual review: local DOM and visual review passed; one H1, canonical correct, TechArticle present, no broken images or horizontal overflow.
 
 ## Publication
 
-- Owner authorized publication: no.
+- Owner authorized publication: yes, 2026-08-05.
 - Merge/publish date: pending.
 - Production URL verified: pending.
 - Index request/status: pending.

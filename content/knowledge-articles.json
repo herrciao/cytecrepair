@@ -75,6 +75,21 @@
     "published": true
   },
   {
+    "slug": "spindle-overheating",
+    "title": "M21 Spindle Overheating: Verify the Alarm Before Further Operation",
+    "description": "A cautious diagnostic workflow for Cytec M21 bearing or motor temperature alarms, sensor checks, stop conditions, and assessment data.",
+    "category": "symptom",
+    "publishedAt": "2026-08-05",
+    "modifiedAt": "2026-08-05",
+    "targetKeyword": "Cytec M21 spindle overheating",
+    "secondaryKeywords": ["M21 spindle temperature alarm", "Cytec spindle running hot", "M21 bearing temperature"],
+    "searchIntent": "diagnostic",
+    "summary": "How to distinguish a possible temperature-signal problem from confirmed spindle overheating, when to stop, and what evidence to collect.",
+    "relatedSlugs": ["tool-clamping-unstable", "hydraulic-alarm-reset", "spindle-face-oil-leak"],
+    "cta": "assessment",
+    "published": true
+  },
+  {
     "slug": "case-spindle-oil-leak-rotary-union",
     "title": "Case Study: Spindle Face Oil Leak — Same-Day Root Cause & Repair",
     "description": "An anonymized M21 case tracing spindle-face hydraulic oil leakage to rotary-union seal failure and validating the repair.",

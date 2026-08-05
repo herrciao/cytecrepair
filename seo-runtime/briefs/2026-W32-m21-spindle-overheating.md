@@ -31,13 +31,13 @@
 - Photos/data available and anonymized: pending.
 - Claims requiring owner confirmation: initial symptoms, isolation order, safe checks, data request, stop conditions, confirmed causes, and repair validation.
 - Claims explicitly excluded: universal temperature thresholds, timelines, failure rates, repair outcomes, or M21 specifications not verified for the relevant configuration.
-- Technical reviewer decision: `pending`.
+- Technical reviewer decision: `approved` by the owner on 2026-08-05 with approximate-value and safety-disclaimer requirements incorporated.
 
 ## Page specification
 
 - Working title: `Cytec M21 Spindle Overheating: What to Check Before Damage Escalates`
-- Meta title: pending technical review and final intent wording.
-- Meta description: pending technical review.
+- Meta title: `Cytec M21 Spindle Overheating: Verify Temperature Alarms Safely`.
+- Meta description: `Cytec M21 bearing or motor temperature alarm? Learn how professionals verify the sensor signal, recognize confirmed overheating, and decide when to stop the spindle.`
 - Primary keyword: `Cytec M21 spindle overheating`.
 - Secondary keywords: `M21 spindle temperature`, `Cytec spindle running hot`, `M21 spindle heat diagnosis`.
 - Schema type: `TechArticle`.
@@ -57,10 +57,10 @@ Do not draft technical answers until the owner supplies and approves evidence.
 
 ## Acceptance criteria
 
-- [ ] Human technical approval recorded in the Run.
-- [ ] No invented case, result, measurement, specification, or experience claim.
-- [ ] Intent does not cannibalize `/spindle-repair-rebuild`.
-- [ ] Canonical registry and page agree.
-- [ ] Relevant internal links and assessment path exist.
-- [ ] Legal/non-OEM language is preserved.
-- [ ] SEO check and build pass.
+- [x] Human technical approval recorded in the Run.
+- [x] No invented case, result, measurement, specification, or experience claim.
+- [x] Intent does not cannibalize `/spindle-repair-rebuild`.
+- [x] Canonical registry and page agree.
+- [x] Relevant internal links and assessment path exist.
+- [x] Legal/non-OEM language is preserved.
+- [x] SEO check and build pass.
